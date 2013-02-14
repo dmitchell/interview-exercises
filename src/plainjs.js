@@ -6,7 +6,7 @@
  *    2. note the bugs and fix them. Be prepared to explain your work. (use window.alert or a new span to put out error messages)
  *       - if you get stuck and can't make any progress, ask for help because getting some help and making progress is better
  *         than not getting anything done.
- *    3. change the equation entry to free form text entry
+ *    3. extra credit: change the equation entry to free form text entry
  *       3.1 first, make it functionally equivalent to the existing entry
  *       3.2 second, allow any well formed equation using the given operators with the addition of parentheses
  *       
@@ -51,8 +51,11 @@ Equation.prototype.updateOperator = function(event) {
     this.compute();
 };
 
-var equation = new Equation();
-
-$('#operator').change(equation.updateOperator);
-
-$('.operand').change(equation.updateOperand);
+{
+    // WARNING: don't treat equation as a global variable in any changes you make
+    var equation = new Equation();
+    
+    $('#operator').change(equation.updateOperator);
+    
+    $('.operand').change(equation.updateOperand);
+}
